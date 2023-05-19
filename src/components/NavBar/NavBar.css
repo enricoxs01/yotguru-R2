@@ -1,0 +1,26 @@
+.navigation {
+    display: inline-flex;
+    background-color: var(--blue-1);
+    margin-bottom: 3%;
+    padding: 10px;
+    width: 100%;
+    border: 3px solid black;
+  }
+  .navigation div {
+      margin: 0px 20px;
+  }
+
+  .navLink {
+    color: white;
+  }
+
+  .userName{
+    border: 10px static black;
+    font-weight: bold;
+  }
+
+  .menuItems{
+    text-align: right;
+    border: 3px solid yellow;
+  }
+  
