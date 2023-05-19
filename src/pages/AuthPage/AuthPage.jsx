@@ -12,7 +12,7 @@ export default function AuthPage({ setUser }) {
           :
           <LoginForm setUser={setUser} />
       }
-      <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button>
+      <button className="authButton" onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button>
 
     </main>
   );

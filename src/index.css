@@ -118,7 +118,7 @@ input {
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
   color: var(--text-dark);
-  /*background-image: none !important; /* prevent lastpass */
+  background-image: none !important; /* prevent lastpass */
   outline: none;
 }
 
@@ -127,6 +127,7 @@ input:focus {
 }
 
 button, a.button {
+  display: flex;
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
@@ -160,3 +161,4 @@ button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
 }
+
