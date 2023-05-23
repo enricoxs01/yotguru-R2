@@ -10,7 +10,7 @@
   --text-dark: black;
   --blue-1: rgb(127, 180, 220);
   --blue-2: blue;
-  --welcome-img: url('./../public/images/princessf50.png')
+  --welcome-img: url('./images/princessf50.png')
 }
 
 *, *:before, *:after {

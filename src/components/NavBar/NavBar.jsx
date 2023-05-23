@@ -10,7 +10,12 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav className ="navigation">
-      <span className="userName" >{user.name}'s Yotguru</span>
+      <div className="logo">
+      <img src={require('../../images/logo.jpg')} alt='YOTGURU'></img>
+      </div>
+      <div className="loginDiv">
+      <span className="userName" >Logged in as: {user.name}</span>
+      </div>
         <div className="menuItems">
         <Link className="navLink" to="/vessels">My Vessels</Link>
         &nbsp; | &nbsp;

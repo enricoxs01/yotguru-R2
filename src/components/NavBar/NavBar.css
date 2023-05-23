@@ -11,7 +11,7 @@
   }
 
   .navLink {
-    color: white;
+    color: blue;
   }
 
   .userName{
@@ -21,6 +21,5 @@
 
   .menuItems{
     text-align: right;
-    border: 3px solid yellow;
   }
   
