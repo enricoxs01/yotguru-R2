@@ -5,15 +5,11 @@
 
 import { getAcctAPI } from './acct-api';
 import { updateAcctAPI } from './acct-api'
-import { createAcctAPI } from './acct-api';
 
 export function getAcct() {
     return  getAcctAPI()
 }
 
-export function createAcct() {
-    return  createAcctAPI()
-}
 export function updateAcct(payload) {
     return updateAcctAPI(payload)
 }

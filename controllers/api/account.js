@@ -32,9 +32,8 @@ function generateAcctNumber() {
   return 01234567
 }
 
-async function create(req,res) {
-  console.log("*&*&*&* CREATING ACCOUNT ")
-  const user = await User.findOne({email: req.user.email})
+async function create(email) {
+  const user = await User.findOne({email})
   let acct = new Account;
 
   acct.acctStatus = 0  //associated but incomplete since this is at creation time
@@ -43,7 +42,7 @@ async function create(req,res) {
   acct.firstName = ""
   acct.middleNameInitial=""
   acct.lastName=""
-  acct.email=req.user.email
+  acct.email= email
   acct.countryCode=null
   acct.phone=null
   acct.yguser=user._id
@@ -55,14 +54,12 @@ async function create(req,res) {
 }
 
 async function get(req,res) {
-  console.log("*&*&*&* GETTING ACCOUNT ")
   if (!req.user) {return undefined}
   const acct = await Account.findOne({email: req.user.email})
-  console.log("acct findone result is ....", acct)
 
   if (!acct) { 
     //if one does not exist for that user return null
-    return null
+    return create(req.user.email)
   } 
   res.json(acct); //in all cases return the created or existing account with the proper status 1 or 0
 }

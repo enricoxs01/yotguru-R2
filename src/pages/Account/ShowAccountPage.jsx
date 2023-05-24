@@ -1,7 +1,6 @@
-import  {CCard,CCardImage,CCardBody,CCardText,CCardTitle,CListGroup,CListGroupItem,CCardLink,CRow,CCol}  from '@coreui/react';
+import  {CCardLink}  from '@coreui/react';
 import React from 'react'
 import "./AccountPage.css"
-import { getAcct } from '../../utilities/acct-service';
 
 export default function ShowAccountPage({account}) {
 
@@ -10,32 +9,16 @@ export default function ShowAccountPage({account}) {
         <main className="accountView">
           <div className="accountCard">
             <h1> SHOW ACCOUNT </h1>
-          <CCard className="mb-3" style={{ maxWidth: '540px' }}>
-            <CRow className="g-0">
-            <CCol md={4}>
-              <CCardImage src={require('../../images/logo.jpg') } />
-            </CCol>
-            <CCol md={8}>
-              <CCardBody>
-                <CCardTitle>ACCOUNT NUMBER: {account.actNumber} </CCardTitle>
-                <CCardText>
-                Belongs to: {account.firstName} {  } {account.middleNameInitial} {  } {account.lastName} 
-                </CCardText>
-                </CCardBody>
-                <CListGroup flush>
-                  <CListGroupItem>Email: {account.email}</CListGroupItem>
-                  <CListGroupItem>Phone: +{account.countryCode} {  } {account.phone}</CListGroupItem>
-                </CListGroup>
-              <CCardBody>
-                <CCardLink className="accountLink" href="#">Edit</CCardLink>
+              <img className='boatImage' src={require('../../images/logo.jpg') } />
+              <h2>ACCOUNT NUMBER: {account.actNumber}</h2>
+              <p className='text'>Belongs to: {account.firstName} {  } {account.middleNameInitial} {  } {account.lastName} </p>
+              <p className='text'>Email: {account.email} </p>
+              <p className='text'>Phone: +{account.countryCode} {  } {account.phone} </p>
+              <CCardLink className="accountLink" href="/account/edit">Edit</CCardLink>
                  {  }
-                <CCardLink className="accountLink" href="#">Cancel Subscription</CCardLink>
+              <CCardLink className="accountLink" href="/account/cancel">Cancel Subscription</CCardLink>
                   {  }
-                <CCardLink className="accountLink" href="#">Add Photo </CCardLink>
-              </CCardBody>
-            </CCol>
-            </CRow>
-        </CCard>
+              <CCardLink className="accountLink" href="/account/addPhoto">Add Photo </CCardLink>
         </div>
       </main>
      </>
