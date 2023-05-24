@@ -1,23 +1,24 @@
-import { useState } from "react"
 import { updateAcct } from "../../utilities/acct-service"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
+
 export default function EditAccountPage({account, setAccount}) {
-    const [tempAcct, setTempAcct] = useState(account)
-    console.log("EDIT ACCOUNT ...", tempAcct)
-
+    const altAccount = account
     const navigate = useNavigate()
-
+    const [tempAcct, setTempAcct] = useState({...account})
+    
     async function handleSubmit(evt) {
         evt.preventDefault()
         try {
           await updateAcct(tempAcct)
-          setAccount(tempAcct)
-          navigate('/account')
+          console.log("Handle Submit in EDIT ACCOUNT the account is set to ", account)
           } 
         catch (err) {
           console.log("failed to update account")
         }
+        setAccount(tempAcct)
+        navigate('/account',{replace: true})
     }
 
     function handleChange(evt) {
@@ -30,7 +31,7 @@ export default function EditAccountPage({account, setAccount}) {
         <h1> Edit account {tempAcct.acctNumber}</h1>
         <form autoComplete="off" onSubmit={handleSubmit}>
         <label>First Name</label>
-        <input type="text" name="firstName" value={tempAcct.firstnName} onChange={handleChange}  />
+        <input type="text" name="firstName" value={tempAcct.firstName} onChange={handleChange}  />
         <label>Middle Initial</label>
         <input type="text" name="middleNameInitial" value={tempAcct.middleNameInitial} onChange={handleChange}  />
         <label>Last Name</label>

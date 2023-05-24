@@ -1,19 +1,33 @@
 import { Link } from "react-router-dom";
-import { getVessels } from "../../utilities/vessel-service";
 
-export default function ShowVesselsPage() {
+export default function ShowVesselsPage({vessels}) {
   //vessels is an array of vessels that needs to be formatted
-
-  const renderVessels =   getVessels()
-  console.log("VESSELS>>> ",renderVessels)
-
 
   return (
     <>
-    { renderVessels.length?
+    { vessels.length?
         <div>
-            {renderVessels}
-            <Link to='/vessels/add'> Add Vessel</Link>
+            <div>
+              { vessels.map((vessel) => {
+                return (
+                  <div> 
+                    <div className="form-container" style={{textAlign: 'start'}}>
+                      <h2>Vessel {vessel.name}</h2>
+                      <p> Hull Id:      {vessel.hullId}</p>
+                      <p> LOA:          {vessel.LOA} </p>
+                      <p> Manufacturer: {vessel.manufacturer} </p>
+                      <p> Model:        {vessel.model} </p>
+                      <p> Model Year:   {vessel.modelYear} </p>
+                      <Link className = "vesselLink" to={{pathname:`/vessels/edit/${vessel._id}`}}> Edit </Link>
+                      <Link className = "vesselLink" to={{pathname:`/vessels/delete/${vessel._id}`}}> Delete</Link>
+                    </div>
+                  </div>
+                 );
+              }) }
+            </div>
+            <div className = "addVesselLink">
+                <Link to='/vessels/add'> Add Vessel</Link>
+            </div>
         </div>
         :
         <div>

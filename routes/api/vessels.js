@@ -6,7 +6,8 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 //current folder is api/vessels
 router.get ('/', ensureLoggedIn,vesselsCtrl.get)
 router.post('/add',ensureLoggedIn,vesselsCtrl.create)
-//router.put ('/update',ensureLoggedIn, vesselsCtrl.update);
+router.put('/update',ensureLoggedIn, vesselsCtrl.update);
+router.delete('/delete', ensureLoggedIn, vesselsCtrl.delete)
 
 
 module.exports = router;

@@ -28,6 +28,7 @@ body {
   padding: 2vmin;
   height: 100vh;
   background-image: var(--welcome-img);
+  background-size: cover;
 }
 
 code {

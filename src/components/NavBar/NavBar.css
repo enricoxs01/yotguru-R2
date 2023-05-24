@@ -1,13 +1,16 @@
 .navigation {
     display: inline-flex;
     background-color: var(--blue-1);
-    margin-bottom: 3%;
+    margin-bottom: 1%;
     padding: 10px;
     width: 100%;
     border: 3px solid black;
   }
-  .navigation div {
-      margin: 0px 20px;
+
+
+
+  .menuItems {
+      margin: 0px 300px 0px 300px;
   }
 
   .navLink {

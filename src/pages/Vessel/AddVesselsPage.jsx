@@ -1,11 +1,11 @@
 import { useState } from "react"
 import { createVessel } from "../../utilities/vessel-service"
+import { useNavigate } from "react-router-dom"
 
 export default function AddVesselsPage() {
-    //vessels is an array of vessels that needs to be formatted
-    console.log("Into Add Vessels ")
 
     const [tempVessel, setTempVessel] = useState({})
+    const navigate = useNavigate()
 
     async function handleSubmit(evt) {
         evt.preventDefault()
@@ -15,6 +15,7 @@ export default function AddVesselsPage() {
         catch (err) {
           console.log("failed to create new vessel")
         }
+        navigate('/vessels',{replace: true})
     }
 
     function handleChange(evt) {

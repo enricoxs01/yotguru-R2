@@ -7,27 +7,38 @@ import AuthPage from '../AuthPage/AuthPage';
 import AccountPage from '../Account/AccountPage';
 import EditAccountPage from '../Account/EditAccountPage';
 import CancelAccountPage from '../Account/CancelAccountPage';
-import AddPhotoPage from '../Account/AddPhotoPage';
 import NavBar from '../../components/NavBar/NavBar';
 import sendRequest from '../../utilities/send-request';
 import ShowVesselsPage from '../Vessel/ShowVesselsPage';
 import AddVesselsPage from '../Vessel/AddVesselsPage';
+import EditVesselPage from '../Vessel/EditVesselsPage';
+import DeleteVesselPage from '../Vessel/DeleteVesselPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [account, setAccount] = useState({})
+  const [vessels, setVessels] = useState([])
+  const [hack, setHack] = useState(0)
 
   useEffect(function() {
     async function getAccount() {
-      const act = 
             await sendRequest('/api/account')
-            .then ((res)=> {
-              setAccount(res)
-            })
+            .then ((res)=> setAccount(res))
+            
+      console.log("ACCOUNT in useEffect is set to ...", account)
     }
     getAccount()
 
-  }, []);
+    async function getVessels() {
+                   await sendRequest('/api/vessels')
+                   .then ((res) => setVessels(res))
+      console.log("VESSELS is set to ...", vessels)
+    }
+    getVessels()
+  }, []); 
+
+
+
 
   return (
     <main className="App">
@@ -36,12 +47,14 @@ export default function App() {
            <NavBar user={user} setUser={setUser} />
            <Routes>
                {/* Route components in here */}
-                <Route path="/vessels" element={<ShowVesselsPage />} />
+                <Route path="/vessels" element={<ShowVesselsPage vessels={vessels}/>} />
                 <Route path="/vessels/add" element={<AddVesselsPage />} />
+                <Route path="/vessels/edit/:id" element={<EditVesselPage vessels={vessels} setVessels={setVessels}/>} />
+                <Route path="/vessels/delete/:id" element={<DeleteVesselPage />} />
+
                 <Route path="/account" element={<AccountPage account={account} setAccount={setAccount} />} />
-                <Route path="/account/edit" element={<EditAccountPage account={account} setAccount={setAccount} />} />
+                <Route path="/account/edit" element={<EditAccountPage account={account} hack={hack} setHack={setHack} />} />
                 <Route path="/account/cancel" element={<CancelAccountPage account={account} setAccount={setAccount} />} />
-                <Route path="/account/addPhoto" element={<AddPhotoPage account={account} setAccount={setAccount} />} />
            </Routes>
           </>
           :
