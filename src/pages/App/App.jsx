@@ -6,7 +6,6 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import AccountPage from '../Account/AccountPage';
 import EditAccountPage from '../Account/EditAccountPage';
-import CancelAccountPage from '../Account/CancelAccountPage';
 import NavBar from '../../components/NavBar/NavBar';
 import sendRequest from '../../utilities/send-request';
 import ShowVesselsPage from '../Vessel/ShowVesselsPage';
@@ -18,21 +17,19 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [account, setAccount] = useState({})
   const [vessels, setVessels] = useState([])
-  const [hack, setHack] = useState(0)
 
   useEffect(function() {
     async function getAccount() {
             await sendRequest('/api/account')
             .then ((res)=> setAccount(res))
             
-      console.log("ACCOUNT in useEffect is set to ...", account)
     }
     getAccount()
-
+  
     async function getVessels() {
                    await sendRequest('/api/vessels')
                    .then ((res) => setVessels(res))
-      console.log("VESSELS is set to ...", vessels)
+      console.log("VESSELS in useEffect is set to ...", vessels)
     }
     getVessels()
   }, []); 
@@ -52,9 +49,8 @@ export default function App() {
                 <Route path="/vessels/edit/:id" element={<EditVesselPage vessels={vessels} setVessels={setVessels}/>} />
                 <Route path="/vessels/delete/:id" element={<DeleteVesselPage />} />
 
-                <Route path="/account" element={<AccountPage account={account} setAccount={setAccount} />} />
-                <Route path="/account/edit" element={<EditAccountPage account={account} hack={hack} setHack={setHack} />} />
-                <Route path="/account/cancel" element={<CancelAccountPage account={account} setAccount={setAccount} />} />
+                <Route path="/account" element={<AccountPage account={account}/>} />
+                <Route path="/account/edit" element={<EditAccountPage account={account} />} />
            </Routes>
           </>
           :

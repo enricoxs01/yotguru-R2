@@ -1,16 +1,17 @@
 .navigation {
     display: inline-flex;
     background-color: var(--blue-1);
-    margin-bottom: 1%;
     padding: 10px;
     width: 100%;
     border: 3px solid black;
   }
 
-
+.loginDiv{
+  margin-left: 20px;
+}
 
   .menuItems {
-      margin: 0px 300px 0px 300px;
+      margin: 0px 0px 0px 200px;
   }
 
   .navLink {

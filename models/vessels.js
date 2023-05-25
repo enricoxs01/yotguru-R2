@@ -13,7 +13,6 @@ const vesselSchema = new Schema({
   },
   LOA: {
     type: Number,
-    required: true
   },
   manufacturer: {
     type: String

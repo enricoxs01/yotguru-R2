@@ -4,7 +4,6 @@ import { deleteVessel } from "../../utilities/vessel-service";
 export default function DeleteVesselPage() {
     const navigate = useNavigate();
     const params = useParams();
-    console.log("PARAMS in Delete Vessel is ", params)
 
     function handleSubmit(evt){
         evt.preventDefault()
@@ -14,7 +13,7 @@ export default function DeleteVesselPage() {
         catch (err) {
           console.log("failed to delete vessel")
         }
-        
+
         navigate('/vessels',{replace: true})
     }
 

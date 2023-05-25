@@ -23,8 +23,6 @@ export function deleteVessel(id){
 }
 
 export function updateVessel(payload) {
-    console.log( "into UPDATE VESSEL....")
     let res = updateVesselAPI(payload)
-    console.log(" RES from UPDATE VESSEL is...", res)
     return res
 }

@@ -18,13 +18,10 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
     // Prefacing with 'Bearer' is recommended in the HTTP specification
     options.headers.Authorization = `Bearer ${token}`;
     }
-    console.log("REQUEST...",url)
     const res = await fetch(url, options);
-    console.log("RESPONSE.....",res)
     // res.ok will be false if the status code set to 4xx in the controller action
     if (res.ok) { return res.json(); }
     else { 
-      console.log("response is ",res.statusText)
       throw new Error('Bad Request at - Send Request - check URL and Payload');
     }
   }

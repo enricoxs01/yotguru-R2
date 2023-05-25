@@ -36,7 +36,6 @@ async function create(req, res) {
 
 
 async function update(req, res) {
-  console.log("UPDATE REQ BODY is ........", req.body)
 
   const vessel = await Vessels.findById(req.body._id);
   vessel.name = req.body.name;

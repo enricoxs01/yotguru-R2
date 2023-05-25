@@ -1,23 +1,30 @@
 import { updateAcct } from "../../utilities/acct-service"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import sendRequest from '../../utilities/send-request';
 
 
-export default function EditAccountPage({account, setAccount}) {
-    const altAccount = account
+export default function EditAccountPage() {
     const navigate = useNavigate()
-    const [tempAcct, setTempAcct] = useState({...account})
+    const [tempAcct, setTempAcct] = useState({})
     
+    useEffect(function() {
+      async function getAccount() {
+              await sendRequest('/api/account')
+              .then ((res)=> setTempAcct(res))
+                    }
+      getAccount()
+    },[])
+
     async function handleSubmit(evt) {
         evt.preventDefault()
         try {
           await updateAcct(tempAcct)
-          console.log("Handle Submit in EDIT ACCOUNT the account is set to ", account)
           } 
         catch (err) {
           console.log("failed to update account")
         }
-        setAccount(tempAcct)
+        //setAccount(tempAcct)
         navigate('/account',{replace: true})
     }
 
