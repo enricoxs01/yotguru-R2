@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import sendRequest from '../../utilities/send-request';
 import React from 'react'
-import "./AccountPage.css"
+import "./ShowAccountPage.css"
 
 export default function ShowAccountPage({acct}) {
   const [account, setAccount] = useState({})

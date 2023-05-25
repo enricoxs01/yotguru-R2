@@ -1,0 +1,12 @@
+.accountCard {
+    border: 1px solid blue;
+    background-color: aliceblue;
+}
+.accountView{
+    margin-top: 30px;
+    margin-left: 3rem;
+    text-align: center;
+}
+.accountLink{
+    margin: 20px;
+}

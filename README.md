@@ -1,100 +1,35 @@
-# MERN-Stack Infrastructure
+# yotGuru 
 
-Clone this repo to provide the starter code for a comprehensive MERN-Stack project including token-based authentication.
+yotGuru aims to provide an application to support the need for boat maintenance from the end user to the provider. It provides the possibility to register one or more vessels, maintain records, schedule work orders, ensure an accurate inventory of the systems, and many other capabilities. The second release has been refactored to be entirely run on React and has replaced the login mechanism with a native JWT token session.
 
-Here’s the process to create a new MERN-Stack project that starts with the infrastructure code:
+![yotGuru](./src/images/Yotguru%20R2%20welcome.png)
 
-Clone the mern-infrastructure repo: git clone <url of mern-infrastructure> <name-of-project>
-Note that the folder created will be same as <name-of-project> instead of mern-infrastructure
+Once the login is successful the user is presented with the main landing page at Vessels. From here the user can navigate either to the Account or Vessel section. The Vessel section provides a full CRUD round-trip whereas the Account section allows to view and edit the account information.
 
-cd <name-of-project>
-
-Install the Node modules: npm i
-
-Create a .env (touch .env) and add entries for DATABASE_URL and SECRET
-
-Update the "name": "mern-infrastructure" in package.json to the name of your project.
-
-Create a new repo on your personal GH account.
-
-Copy the new GH repo’s URL.
-
-Update the remote’s URL: git remote set-url origin <paste the copied GH url>
-
-Make the initial commit: git add -A && git commit -m "Initial commit"
-
-Push for the first time: git push -u origin main
-
-Have fun coding your new project and don’t forget to make frequent commits!
+![app](./src/images/Yotguru%20R2%20Vessels.png)
+![app](./src/images/Yotguru%20R2%20account%20view.png)
+![app](./src/images/Yotguru%20R2%20edit%20account.png)
 
 
-# Getting Started with Create React App
+Akin to R2, this release's primary goal is to establish the basic framework to create an account, collect information and for a user to add one or more vessels. The vessels can be associated with only one account. There can be only one account per login user. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
 
-## Available Scripts
+There is no installation required for the web application. The application can be reached at https://yotguru-r2.herokuapp.com/
 
-In the project directory, you can run:
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Vessels** provides a list of vessels. The user can add a new one or view the details of each. From the details view the user can edit or delete a vessel.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Account** via this button the user can fill out or update its account record.
 
-### `npm test`
+**Logout** this button terminates the session for the user.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Technologies 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application is built on Node.js, Express, Mongoose, MongoDB,React and it is deployed to Heroku.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+At this time there is no license for this application.

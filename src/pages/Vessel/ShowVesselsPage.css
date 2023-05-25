@@ -1,8 +1,13 @@
 main {
  text-align: center;
  grid-template-rows: 4rem 3rem 4rem 3rem;
-
 }
+
+.editView{
+    margin-top: 3rem;
+    margin-left: 3rem;
+}
+
 .showVessels{
     display: grid;
     grid-template-columns: 20rem  20rem 20rem;

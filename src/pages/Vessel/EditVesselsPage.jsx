@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { updateVessel } from "../../utilities/vessel-service";
-import { useEffect, useState } from "react";
-import sendRequest from '../../utilities/send-request';
+import { useState } from "react";
+import "./ShowVesselsPage"
 
-export default function EditVesselPage({vessels, hack,setHack}) {
+export default function EditVesselPage({vessels}) {
     const params = useParams();
 
     var vessel = vessels.find( ves => {
@@ -31,6 +31,7 @@ export default function EditVesselPage({vessels, hack,setHack}) {
 
 
     return (
+        <main className="editView">
         <div className="form-container">
         <h1> Edit Vessel </h1>
         <form autoComplete="off" onSubmit={handleSubmit}>
@@ -41,5 +42,6 @@ export default function EditVesselPage({vessels, hack,setHack}) {
         <button type="submit">SUBMIT</button>
         </form>
       </div>
+      </main>
     )
 }

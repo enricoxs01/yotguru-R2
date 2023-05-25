@@ -34,6 +34,7 @@ export default function EditAccountPage() {
       }
 
     return (
+      <main className="accountView">
       <div className="form-container">
         <h1> Edit account {tempAcct.acctNumber}</h1>
         <form autoComplete="off" onSubmit={handleSubmit}>
@@ -50,5 +51,6 @@ export default function EditAccountPage() {
         <button type="submit">SUBMIT</button>
         </form>
       </div>
+      </main>
     );
 }

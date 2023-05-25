@@ -4,7 +4,7 @@ import { getUser } from '../../utilities/users-service';
 import './App.css';
 
 import AuthPage from '../AuthPage/AuthPage';
-import AccountPage from '../Account/AccountPage';
+import ShowAccountPage from '../Account/ShowAccountPage';
 import EditAccountPage from '../Account/EditAccountPage';
 import NavBar from '../../components/NavBar/NavBar';
 import sendRequest from '../../utilities/send-request';
@@ -49,7 +49,7 @@ export default function App() {
                 <Route path="/vessels/edit/:id" element={<EditVesselPage vessels={vessels} setVessels={setVessels}/>} />
                 <Route path="/vessels/delete/:id" element={<DeleteVesselPage />} />
 
-                <Route path="/account" element={<AccountPage account={account}/>} />
+                <Route path="/account" element={<ShowAccountPage />} />
                 <Route path="/account/edit" element={<EditAccountPage account={account} />} />
            </Routes>
           </>
